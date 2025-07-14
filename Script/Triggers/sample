@@ -1,1 +1,15 @@
+TRIGGERS:
+  Special SP that automaticaly run in response to specific event that happen to table.
+  Event:
+    INSERT, UPDATE, DELETE
 
+TRIGGER TYPES:
+DML: (INSERT, UPDATE, DELETE)----------------->> AFTER, INSTEAD OF
+DDL: CREATE, ALTER, DROP
+LOGGON:
+
+SYNTAX:  CREATE TRIGGER TriggerName ON TableName
+  WHEN--> (AFTER or INSTEAD OF) INSERT, UPDATE, DELETE    
+          BEGIN
+   WHAT-->   ---SQL Staement
+          END  
