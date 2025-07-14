@@ -11,12 +11,12 @@ BEGIN
 	FROM Sales.Customers
 	WHERE Country = @Country
 END
-
+----Execute stored procedure
 EXECUTE customersummary @Country = 'Germany'
+--/==============================================================================================================================================/
 
 --------------Stored Procedure to select customer summary based upon country filter with default value--------------------------
 
-Use SalesDB
 
 CREATE PROCEDURE customersummary @Country NVARCHAR(20)='USA'
 
@@ -27,5 +27,5 @@ BEGIN
 	FROM Sales.Customers
 	WHERE Country = @Country
 END
-
+----Execute stored procedure
 EXECUTE customersummary 
