@@ -1,1 +1,37 @@
+INDEX: 
+  Data structure that provide quick access to data, optimizing the speed of your queries. some Indexes are for improve reading performance some for writing performance.
+SYNTAX: CREATE [CLUSTERED | NONCLUSTERED] INDEX index_name ON table_name (column1, Column2,....)   
+        <<if we dont specified clustered or nonclustered , default will be nonclustered index)
+Types:
+  1: STRUCTURE
+      a) Clustered
+      b) Non-Clustered
+  2: STORAGE
+      a) Row Index
+      b) ColumnStore Index
+  3: FUNCTIONS
+      a)  Unique Index
+      b)  Filtered Index
+
+PAGE:
+Data stored in disk in form of page files. Page is smallest unit of datastorage in database (8Kb) it can store anything ( data, Metadata, Indexes)
+  1) Dta Page : Header {1st section :[Field ID: PageNumber] (96 byte), 2nd section : data rows ,Last Section : offset array[keep track of each row , where it is begin]}
+  2) Index Page : It store key value (pointer) to another page. Do not store actual values
+HEAP Table: Table without clustered Index
+a) Clustered Index
+      If we create cluster on table for example on id, data will get stored from lowest to highest ID in datapages. SQL buid B-tree (balance tree),
+      which is hierachical structure, storing data at leaves, to help locate data quickly. Root Node>>Intermediate node>>Leaf Node. Only one cluster Index can be 
+      created on a table. Its like table o content in book
+      -Leaf node contain actual data for clustered index
+      -Intermediate Node store Index page (Key: Pointer to datapage)
+      -Root Node store point to Index page( Key:pointer to Index page)
+b) Non Clustered Index
+      Do not reorganise or change anything on data page. We can create as many as non cluster index. Its like Index at end of book. 
+      Data stored in index as Row Identifier - RID ---> (FieldID: Pagenumer: RowOffset)
+      -Leaf Node contain Index pages : points to base data page
+      -Intermediate Node points to Index page
+      -Root Node  also store pointer to Index page
+
+
+
 
